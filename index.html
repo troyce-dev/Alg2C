@@ -2815,6 +2815,153 @@ const UNITLES = {
   },
 };
 
+// Projects for 1- to 4-day lengths (one task block per day). The 5-day project is UNITLES[unit].project.
+const P_ = (title, dq, scen, tasks, product, mats) => ({ title, dq, scen, tasks, product, mats });
+const PROJ_LEN = {
+  lin: {
+    1: P_('The lost ticket stubs', 'How can a system of equations recover information nobody wrote down?', 'The spring concert sold adult tickets for $8 and student tickets for $5. The cash box holds $1,175 from 190 tickets, but the ticket stubs were thrown away. The treasurer needs to know how many of each kind were sold.',
+      ['Define your variables and write a system. Solve it two ways, by graphing (Desmos or graph paper) and by substitution, and check that both methods agree. Then the treasurer recounts and says the box holds $1,180. Show why that total is impossible for 190 tickets, and write a short note explaining the mistake.'],
+      'A one-page solution showing both methods and a note to the treasurer.', ['Graph paper or Desmos']),
+    2: P_('Phone plan showdown', 'Which phone plan really costs the least, and does the answer depend on how long you keep it?', 'Plan A: $100 for the phone plus $40 per month. Plan B: a free phone plus $55 per month. Plan C: $250 for the phone plus $25 per month.',
+      ['Survey 10 classmates about how many months they usually keep a phone plan. Write a cost equation for each plan, make a table for 0 to 24 months, and graph all three lines on one set of axes.', 'Solve the three systems to find where each pair of plans costs the same. Use inequalities to state when each plan is cheapest, then write a recommendation for a family that keeps a plan for the number of months your survey suggests.'],
+      'A recommendation letter with the equations, the graph, and the break-even months.', ['Graph paper or Desmos', 'Calculators']),
+    3: P_('T-shirt fundraiser', 'Which vendor should the class use, and how many shirts must we sell to reach our goal?', 'The class will sell T-shirts for $15 each. Vendor X charges a $150 setup fee plus $6 per shirt. Vendor Y charges $9 per shirt with no setup fee. The goal is a $500 profit.',
+      ['Write a cost equation for each vendor. Solve a system to find the number of shirts where the vendors cost the same, and graph both lines.', 'Write a profit equation for each vendor. Find the break-even number of shirts for each, then solve inequalities to find how many shirts each vendor needs to reach a $500 profit.', 'Decide which vendor to use if you expect to sell 40, 80, or 120 shirts. Prepare a 2-minute pitch for the student council.'],
+      'A pitch with equations, graphs, and a vendor recommendation.', ['Graph paper or Desmos', 'Calculators']),
+    4: P_('Race to the finish', 'If a slower runner gets a head start, where will the faster runner catch up?', 'Teams time toy cars (or walkers) over measured distances, write linear models from their data, and use systems of equations to predict when one catches the other.',
+      ['Mark a 10-meter course with tape. Time two different cars (or a slow walker and a fast walker) at every meter and record (time, distance) data.', 'Graph each data set and write a linear model in slope-intercept form. Interpret the slope and the intercept in context.', 'Give the slower car a head start. Write and solve a system to predict the time and place where the faster car catches up. Then test it and record what actually happens.', 'Compare your prediction with the test, explain any error, and present your models, graph, and results.'],
+      'A lab report or poster with data, models, the system, and a comparison of prediction and test.', ['Toy cars or ramps', 'Tape measures and masking tape', 'Stopwatches (phones)', 'Desmos or graph paper']),
+  },
+  oops: {
+    1: P_('The four 4s challenge', 'How many whole numbers can you make with exactly four 4s?', 'Using exactly four 4s, any operations, exponents, and grouping symbols, teams try to build every whole number from 0 to 20.',
+      ['Build as many of the numbers 0–20 as you can with exactly four 4s. For each one, write the expression and evaluate it step by step to prove it follows the order of operations. Then find one expression that gives a different value if someone ignores the order of operations, and post your best expressions on the class chart.'],
+      'A team chart of expressions for 0–20 with step-by-step checks.', ['Chart paper', 'Markers']),
+    2: P_('Calculator wars', 'Why do different calculators sometimes give different answers to the same expression?', 'Teams test tricky expressions such as 6 ÷ 2(1 + 2), −3², and 2³² on a phone calculator, a graphing calculator, and Desmos, then explain the results.',
+      ['Enter 8 tricky expressions into three different tools and record every result in a table. Circle any expression where the tools disagree.', 'Use the order of operations to explain each disagreement. Write a classroom “style guide” that shows how to add grouping symbols so every tool gives the same answer, and present your three most surprising results.'],
+      'A results table and a one-page style guide.', ['Phone calculators, graphing calculators, and Desmos']),
+    3: P_('Restaurant bill builder', 'Can one expression calculate a fair split of a group restaurant bill?', 'Your team orders from a menu for a group of 6. The bill includes a coupon, 7% tax, and an 18% tip, and some people pay for others.',
+      ['Choose menu items for 6 people. Write a single expression for the subtotal, then one expression for the total with the coupon, tax, and tip in the correct order.', 'Evaluate your expressions with fractions and decimals. Write an expression for each person’s share when two people pay for a third. Trade with another team and check their work.', 'Make a receipt that contains one deliberate order-of-operations mistake. Present it and challenge the class to find and fix the error.'],
+      'A completed receipt, the expressions, and an error-finding challenge.', ['Sample menus', 'Calculators']),
+    4: P_('Design a board game', 'How can we design a game that rewards players for evaluating expressions correctly?', 'Teams design a board game where every move depends on evaluating an expression built from dice rolls and cards.',
+      ['Sketch the board and write the rules. Decide how dice values are substituted into expressions to set each move.', 'Write a deck of 24 expression cards: 6 with negatives, 6 with exponents, 6 with fractions, and 6 with nested grouping symbols.', 'Make an answer key, then playtest with your own team. Fix any card that is unclear or too easy.', 'Trade games with another team, play their game, and give written feedback using the rubric.'],
+      'A playable board game with rules, an expression deck, and an answer key.', ['Poster board', 'Dice', 'Index cards']),
+  },
+  quadf: {
+    1: P_('Parabola art', 'Can you draw a picture using only parabolas?', 'In Desmos, teams recreate a simple picture (a smile, an arch, a logo, or a bridge) using at least six parabolas with domain restrictions.',
+      ['Sketch your picture, then build it in Desmos with at least six parabolas: two in vertex form, two in standard form, and two in intercept form. For each parabola, list its vertex, axis of symmetry, a value, and whether it is concave up or down. Share your picture in a class gallery.'],
+      'A Desmos picture with a table of each parabola’s characteristics.', ['Desmos (computers or tablets)']),
+    2: P_('Will the boat fit?', 'Can a quadratic model tell a boat captain whether it can pass under an arch bridge?', 'An arch bridge spans 40 m of river, and the top of the arch is 12 m above the water. Boats of different widths and heights need to pass under it.',
+      ['Place the arch on a coordinate plane with the vertex on the y-axis. Write the equation in vertex form, then state the domain, range, and x-intercepts in context. Test three boats: 10 m wide and 9 m tall, 20 m wide and 8 m tall, and 30 m wide and 6 m tall.', 'Design your own arch for a canal that must let a 16 m wide, 7 m tall barge through with 1 m of clearance above it. Write its equation, graph it, and present your design.'],
+      'A design sheet with equations, graphs, and a captain’s guide.', ['Graph paper or Desmos']),
+    3: P_('Design a fountain', 'How can transformations of one parabola create a symmetric fountain?', 'Each water jet in a fountain follows a parabola. One jet leaves a nozzle at ground level, reaches a maximum height of 4 ft, and lands 6 ft away.',
+      ['Write the equation of one jet using its vertex and a second point. Identify the vertex, axis of symmetry, domain, and range in context.', 'Use transformations (shifts, reflections, and stretches) to add at least four more jets that make a symmetric design. Write each new equation and describe how it changed from the original.', 'Build the fountain in Desmos and present it, explaining how each transformation changes the water’s path.'],
+      'A Desmos fountain design with equations and a transformation summary.', ['Desmos or graphing calculators']),
+    4: P_('Price it right', 'What price brings in the most money for a class snack sale?', 'Teams survey students about the most they would pay for a snack, then use quadratic regression to model revenue and find the best price.',
+      ['Survey at least 20 students: “Would you buy this snack at $0.50? $1.00? $1.50? …” up to $3.00. Record how many would buy at each price.', 'Make a table of price and revenue (price × buyers). Use QuadReg to write a regression equation rounded to the nearest hundredth.', 'Find the vertex and explain what it means. Find the x-intercepts and explain what they mean. Predict the revenue at a price you did not test.', 'Present your pricing plan with the data, graph, equation, and the limits of your model.'],
+      'A pricing report with survey data, a regression model, and a recommendation.', ['Graphing calculators or Desmos', 'Survey sheets']),
+  },
+  solveq: {
+    1: P_('Which method wins?', 'How do you choose the fastest way to solve a quadratic equation?', 'Each team gets eight quadratic equations and must decide whether factoring, square roots, or the quadratic formula is the best method for each.',
+      ['Sort the eight equations into three groups (factoring, square roots, quadratic formula) and write one sentence justifying each choice. Solve all eight, leaving answers in simplest radical form and writing imaginary solutions as a + bi. Then check two of them with a different method and present your rules for choosing a method.'],
+      'A sorting chart with solutions and a “how to choose” guide.', ['Equation cards', 'Chart paper']),
+    2: P_('Pumpkin launch', 'How fast must a pumpkin leave the catapult to clear the net, and when will it land?', 'A catapult launches a pumpkin from 6 ft off the ground. Its height in feet after t seconds is h = −16t² + vt + 6, where v is the launch speed in ft/s. A 30-ft net stands in the field.',
+      ['Choose three launch speeds. For each, use the quadratic formula to find when the pumpkin lands and when it is above 30 ft. Round to the nearest hundredth.', 'Use the discriminant to find the slowest launch speed that ever reaches 30 ft and one that never reaches 100 ft. Present a launch guide for the pumpkin-toss team.'],
+      'A launch guide with equations, solutions, and a discriminant explanation.', ['Calculators', 'Desmos (optional)']),
+    3: P_('The golden rectangle', 'Is there a “perfect” rectangle, and do we see it in everyday objects?', 'A golden rectangle has a length-to-width ratio x where x² = x + 1. Teams measure rectangles around school and compare their ratios with the golden ratio.',
+      ['Measure at least eight rectangles (phones, books, doors, cards, screens) and compute each length ÷ width ratio. Record your results in a table.', 'Solve x² = x + 1 with the quadratic formula and simplify the radical. Explain why one solution is rejected and compare your measured ratios with the exact value.', 'Design a poster or logo built on golden rectangles, then present your measurements and your design.'],
+      'A data table, the exact golden ratio, and a golden-rectangle design.', ['Rulers or tape measures', 'Calculators', 'Poster paper']),
+    4: P_('When the graph misses zero', 'What do imaginary solutions mean when a parabola never touches the x-axis?', 'Teams investigate quadratics whose graphs do and do not cross the x-axis, connecting the discriminant, the graph, and complex solutions.',
+      ['Graph y = x² + bx + 5 for b = 0, 2, 4, 6, and 8. Record the number of x-intercepts and the discriminant for each.', 'Solve each equation x² + bx + 5 = 0 with the quadratic formula, writing complex answers in a + bi form.', 'Compare each vertex (h, k) with the solutions. Describe the pattern linking the real part of the solutions to the axis of symmetry.', 'Make a poster or short video that teaches another class what imaginary solutions tell you about a graph.'],
+      'A poster or 3-minute video explaining the connection.', ['Desmos or graphing calculators', 'Poster paper or devices']),
+  },
+  poly: {
+    1: P_('Polynomial match-up', 'Can you predict the shape of a polynomial graph from its equation?', 'Teams create matching cards for polynomial functions (factored equation, graph sketch, end behavior, and zeros), then trade sets with another team.',
+      ['Write four polynomial functions in factored form with degrees 3 to 5. For each, make a card for the equation, a graph sketch, the end behavior, and the zeros with multiplicity. Shuffle, trade with another team, match their set, and explain one match that was hard.'],
+      'A 16-card matching set with an answer key.', ['Index cards', 'Desmos for checking']),
+    2: P_('Roller coaster designer', 'How can a polynomial model the hills and valleys of a roller coaster track?', 'Your team designs a section of coaster track that touches the ground at chosen points, using a cubic or quartic function.',
+      ['Choose where the track touches the ground (the zeros) and write a polynomial in factored form. Expand it into standard form and give its degree, leading coefficient, and end behavior.', 'Graph it and find the number of turns and the tallest hill. Adjust the leading coefficient so the tallest hill is between 100 and 200 ft, then present your design.'],
+      'A track design with the equation in both forms, the graph, and key features.', ['Desmos or graphing calculators']),
+    3: P_('The can pyramid', 'How many cans fit in a pyramid display, and how tall can a display of a given size be?', 'Grocery stores stack cans in square pyramids: 1 can on top, then 4, then 9, and so on. The total for n layers is S(n) = n(n + 1)(2n + 1) ÷ 6.',
+      ['Build small pyramids with cups and record the totals for 1 to 5 layers. Check that S(n) gives the same totals.', 'Expand S(n) into standard form and describe its degree and end behavior. Graph it for n ≥ 0.', 'A store has 285 cans. Set S(n) = 285, then use synthetic division and the graph to find n. Present a display plan for 285, 650, and 1,240 cans.'],
+      'A display plan with the model, the solutions, and a photo of your cup pyramid.', ['Paper cups', 'Desmos or graphing calculators']),
+    4: P_('Real data, polynomial models', 'Can a cubic model describe real data, and how far can we trust it?', 'Teams choose a real data set (hours of daylight over a year, gas prices, or a city’s population) and model it with cubic or quartic regression.',
+      ['Choose a data set with at least 8 points from a reliable source and make a table and a scatter plot.', 'Use CubicReg or QuartReg to fit a model. Round the coefficients and graph the model with the data.', 'Find the turning points and zeros. Use the Remainder Theorem to evaluate the model at a new input, then check with synthetic division.', 'Present your model and explain why predicting far outside the data can fail.'],
+      'A data report with the table, the regression model, the analysis, and a warning about extrapolation.', ['Graphing calculators or Desmos', 'Internet access for data']),
+  },
+  rad: {
+    1: P_('Pendulum lab', 'Can a radical formula predict how long a pendulum takes to swing?', 'The period of a pendulum (one full swing, in seconds) is T = 2π√(L ÷ 9.8), where L is the length in meters.',
+      ['Build pendulums of four different lengths. Time 10 full swings for each and divide by 10. Compare each measured period with the formula. Then solve the formula for L and build a pendulum with a 1-second period. Test it and explain any difference.'],
+      'A lab sheet with data, formula predictions, and the 1-second pendulum.', ['String, washers or weights, tape', 'Meter sticks', 'Stopwatches (phones)']),
+    2: P_('Tsunami tracker', 'How fast does a tsunami travel, and how much warning time do coastal towns get?', 'A tsunami’s speed in meters per second is s = √(9.8d), where d is the ocean depth in meters.',
+      ['Make a table of speeds for depths from 0 to 5,000 m. Graph the function and state its domain and range. Describe how the speed changes as the water gets shallower.', 'Solve the formula for d. Then estimate how long a tsunami takes to cross 2,000 km of ocean with an average depth of 4,000 m. Write a warning-time briefing for a coastal town.'],
+      'A briefing with the table, the graph, and warning-time calculations.', ['Calculators', 'Graph paper or Desmos']),
+    3: P_('How far can you see?', 'How high must a lookout tower be to see a city on the horizon?', 'The distance to the horizon in miles is d = √(1.5h), where h is your eye height in feet.',
+      ['Find the heights of 5 places (your eye level, the school roof, a local hill, a tall building, an airplane) and calculate how far you could see from each.', 'Graph d = √(1.5h) and describe its domain, range, and shape. Solve for h to find how tall a tower must be to see a city 30 miles away.', 'Write a proposal for a lookout tower near school with your calculations, graph, and a scale drawing.'],
+      'A tower proposal with calculations, a graph, and a drawing.', ['Calculators', 'Graph paper']),
+    4: P_('Planet hopping', 'How do rational exponents describe how long a planet takes to orbit the Sun?', 'Kepler’s third law says a planet’s year T (in Earth years) and its distance from the Sun a (in AU) satisfy T = a^(3/2).',
+      ['Look up the distance from the Sun of each planet and make a table of a and T.', 'Rewrite a^(3/2) in radical form. Use both forms to calculate T for each planet and compare with the actual values.', 'Solve T = a^(3/2) for a. Invent a planet with a 20-year orbit and find its distance from the Sun.', 'Create a travel brochure for your solar system that shows each planet’s year and your calculations.'],
+      'A solar-system brochure with tables, conversions, and solutions.', ['Calculators', 'Internet access or a planet data sheet']),
+  },
+  exp: {
+    1: P_('Fold to the Moon', 'How many times would you have to fold a sheet of paper for it to reach the Moon?', 'A sheet of paper is about 0.1 mm thick, and each fold doubles its thickness. The Moon is about 384,400 km away.',
+      ['Fold a sheet as many times as you can and record the layers and thickness after each fold. Write an exponential model for thickness after n folds, rewrite it in log form, and use logarithms to find how many folds would reach the Moon. Present your answer with your steps.'],
+      'A one-page solution with the model, log work, and the answer.', ['Paper', 'Calculators']),
+    2: P_('Going viral', 'How long until a video reaches a million views?', 'A video gets 200 views on day 1, and the number of views triples every two days.',
+      ['Write an exponential model for the views after t days. Make a table and a graph for the first two weeks, and identify the growth factor per day.', 'Use logarithms to find when the video reaches 1 million views. Then change one assumption (a slower growth rate or a bigger start) and compare. Present your findings as a social-media post.'],
+      'A mock social-media post with the model, graph, and log solution.', ['Calculators', 'Desmos or graph paper']),
+    3: P_('Candy decay', 'Can shaking candy model radioactive decay and half-life?', 'Teams shake a cup of candies marked on one side, remove the ones that land marked side up, and repeat to model radioactive decay.',
+      ['Start with 100 candies. Shake, remove the marked-side-up candies, and record how many remain. Repeat until none are left.', 'Use ExpReg to fit a model to your data. Compare it with the theoretical model y = 100(0.5)^x and graph both.', 'Use logarithms to find the half-life from your model and compare it with the theoretical half-life. Write a short report explaining any differences.'],
+      'A lab report with data, both models, graphs, and half-life calculations.', ['Candies marked on one side (about 100 per team)', 'Cups and paper plates', 'Graphing calculators or Desmos']),
+    4: P_('Buying your first car', 'Is it smarter to save up or take a loan, and how fast will the car lose value?', 'Each team chooses a used car, models how its value depreciates, and compares saving up with taking a loan.',
+      ['Choose a car and its price. Research or assume a yearly depreciation rate between 12% and 18%.', 'Write a depreciation model. Use logarithms to find when the car is worth half its price.', 'Compare saving $250 a month in an account at 4% compounded monthly with taking a loan at 7% compounded monthly. Use compound interest and logarithms to compare the timelines.', 'Present a recommendation with your models, graphs, and calculations.'],
+      'A car-buying plan with depreciation and interest models.', ['Calculators', 'Internet access for car prices']),
+  },
+  ratl: {
+    1: P_('Balance the seesaw', 'Where should each weight sit so that a ruler seesaw balances?', 'On a balanced ruler, weight × distance from the pivot is the same on both sides, so distance varies inversely with weight.',
+      ['Balance a ruler on a pencil. Put one coin stack at a fixed spot and find where stacks of 1 to 5 coins balance it on the other side. Record the data, write an inverse variation model d = k ÷ w, graph it, identify the asymptotes, and predict where 8 coins would balance. Then test your prediction.'],
+      'A lab sheet with data, the model, a graph, and a tested prediction.', ['Rulers, pencils, and coins (pennies)']),
+    2: P_('Teamwork math', 'If two people work together, how long will a job take?', 'Teams time individuals doing a task (folding 20 flyers or sorting 50 cards), then predict how long the job takes when people work together.',
+      ['Time each team member doing the task alone and write each person’s rate as a fraction of the job per minute. Write and solve a rational equation to predict how long two members take together.', 'Test your prediction and compare. Then predict the time for three members together, test it, and explain why real teamwork might differ from the model.'],
+      'A results sheet with rates, rational equations, predictions, and test times.', ['Paper to fold or cards to sort', 'Stopwatches (phones)']),
+    3: P_('Batting average comeback', 'How many hits in a row would a player need to raise their average?', 'A player has 12 hits in 50 at-bats (a .240 average). If the player gets x hits in a row, the new average is A(x) = (12 + x) ÷ (50 + x).',
+      ['Find a real player’s hits and at-bats, or use the data above. Write the rational function for hitting x times in a row.', 'Graph A(x) and identify its asymptotes. Explain what the horizontal asymptote means for a hitter.', 'Solve rational equations to find how many hits in a row raise the average to .300 and .350. Present your findings as a sports-report segment.'],
+      'A short sports report with the model, graph, and solutions.', ['Graphing calculators or Desmos', 'Internet access for stats (optional)']),
+    4: P_('The average speed puzzle', 'If you drive somewhere at 30 mph, can you average 60 mph for the round trip?', 'Teams investigate why average speed for a round trip is not the average of the two speeds, using rational expressions.',
+      ['Walk a measured distance slowly, then quickly back. Time both legs and compute the average speed for the round trip.', 'For a trip of d miles out at a mph and back at b mph, write the average speed as 2d ÷ (d/a + d/b). Simplify it to 2ab ÷ (a + b).', 'Fix a = 30 and graph the average speed as a function of b. Identify the horizontal asymptote and explain why the round trip can never average 60 mph.', 'Present the puzzle, your algebra, and your graph to the class.'],
+      'A presentation with data, the simplified rational expression, and the graph.', ['Tape measures', 'Stopwatches (phones)', 'Desmos or graphing calculators']),
+  },
+  seq: {
+    1: P_('Pattern builders', 'How can a rule predict the 50th figure in a growing pattern?', 'Teams build growing patterns with tiles or toothpicks, some growing by adding a fixed amount and some by multiplying.',
+      ['Build the first four figures of an arithmetic pattern and a geometric pattern. For each, decide the type, then write an explicit rule and a recursive rule. Find the number of pieces in figure 50 (or figure 10 for the geometric pattern), find the total pieces in the first 20 figures, and present your patterns.'],
+      'A pattern poster with rules, the nth figure, and a series total.', ['Tiles or toothpicks', 'Poster paper']),
+    2: P_('Bouncing ball lab', 'How far does a bouncing ball travel before it stops?', 'Each bounce of a ball reaches a fraction of the previous height, which forms a geometric sequence.',
+      ['Drop a ball from 2 m and measure the height of the first five bounces (filming helps). Find the common ratio and write an explicit rule.', 'Use geometric series to find the total distance traveled after 5 bounces and, using the infinite series, before the ball stops. Compare balls of two different types and present your results.'],
+      'A lab report with data, the rules, and series calculations.', ['Balls of different types', 'Meter sticks', 'Phones to film']),
+    3: P_('Design an arena', 'How many rows does an arena need to seat the whole crowd?', 'Your team designs a venue where each row has a fixed number more seats than the row before it.',
+      ['Choose the first-row seats and the increase per row. Write an explicit rule for the seats in row n and find the seats in rows 10, 25, and 40.', 'Use the arithmetic series formula to find the total seats for 20, 30, and 40 rows. Find how many rows are needed to seat at least 12,000 people.', 'Draw a blueprint of one section and pitch your design with its rule and capacity.'],
+      'A blueprint with rules, series calculations, and a capacity pitch.', ['Graph paper', 'Calculators']),
+    4: P_('Job offer showdown', 'Which salary offer pays more over a career: a fixed raise or a percent raise?', 'Job A pays $50,000 with a $2,000 raise each year. Job B pays $45,000 with a 5% raise each year.',
+      ['Write the first six salaries for each job and identify each sequence type. Write explicit rules for both jobs.', 'Use series formulas to find the total earned by each job after 5, 10, and 20 years.', 'Find the first year when Job B’s yearly salary passes Job A’s, then the first year when Job B’s total earnings pass Job A’s.', 'Present a recommendation for someone who plans to stay 8 years and for someone who plans to stay 25 years.'],
+      'A comparison poster with rules, sums, and recommendations.', ['Calculators', 'Spreadsheet or Desmos (optional)']),
+  },
+  trig: {
+    1: P_('Ramp audit', 'Are the ramps and stairs at our school safe and accessible?', 'Accessibility guidelines say a wheelchair ramp should rise no more than 1 inch for every 12 inches of length.',
+      ['Use the 1 : 12 rule and inverse tangent to find the steepest allowed ramp angle. Measure the rise and run of at least three ramps or staircases at school, calculate each angle of incline, and decide whether each meets the guideline. Write a short report to the principal.'],
+      'A one-page audit report with measurements, diagrams, and angles.', ['Tape measures', 'Calculators in degree mode']),
+    2: P_('Shadow measuring', 'Can a shadow tell you how tall something is?', 'At any moment, the Sun makes the same angle with the ground everywhere nearby, so shadows can measure heights.',
+      ['Measure a teammate’s height and shadow length. Use inverse tangent to find the Sun’s angle of elevation. Measure the shadows of three tall objects at the same time.', 'Draw a right-triangle diagram for each object and use tangent to find its height. Repeat one measurement later in the day, compare the results, and present your findings.'],
+      'A poster with diagrams, angle calculations, and heights.', ['Tape measures', 'Calculators in degree mode']),
+    3: P_('Roof pitch designer', 'What roof angle and rafter length does a shed need?', 'Your team designs the roof of a 12 ft wide shed. Builders describe a roof by its pitch (rise over 12 in of run), and each rafter is the hypotenuse of a right triangle.',
+      ['Choose a pitch between 4/12 and 12/12. Draw the right triangle for half the roof and find the roof angle with inverse tangent.', 'Find the rafter length with trigonometry (add a 1 ft overhang) and the total height of the roof. Compare two pitches.', 'Build a cardboard model at a scale of 1 in = 1 ft and present your design with the calculations.'],
+      'A scale model and a design sheet with angles and lengths.', ['Cardboard, rulers, protractors, and tape', 'Calculators in degree mode']),
+    4: P_('Search and rescue', 'How can rescuers use angles and distances to find a lost hiker?', 'A hiker walks several straight legs through the woods. Rescuers use right triangles to find where the hiker is, and a circular search zone to plan the search.',
+      ['Lay out a course on the field: walk a set distance north, then turn and walk a set distance east. Measure each leg.', 'Use right-triangle trigonometry to find the direct distance back to the start and the angle to walk.', 'The hiker could be anywhere within 0.5 miles of the last known point, in a 120° sector facing the trail. Find the search area and the arc length of the search boundary.', 'Present a rescue plan with a map, the calculations, and a search route.'],
+      'A rescue plan with a map, triangle diagrams, and sector calculations.', ['Tape measures or trundle wheel', 'Compass (phone)', 'Calculators in degree mode']),
+  },
+};
+const projFor = (U, catId, len) => (len >= 5 ? U.project : PROJ_LEN[catId]?.[len] || U.project);
+const projDays = (P, len) => (P.tasks.length === len ? P.tasks.map((t, i) => [i]) : len === 3 ? [[0, 1], [2, 3], [4]] : P.tasks.map((t, i) => [i]));
+
 // ================= SAT PRACTICE =================
 // Original practice questions written in the style of the digital SAT Math section and tagged with
 // College Board's SAT Math domains and skills. Each topic below maps to the SAT skill it is tested under.
@@ -3608,7 +3755,7 @@ function satMake(key, d) {
     cache.set(key, d); return d;
   }
   function lesBlocks(sec, v, key) {
-    const cat = catById(sec.cat), o = sec.o, L = LESSONS[o.les], U = UNITLES[cat.id], M = LES_MORE[o.les], d = lesData(sec, v), out = [];
+    const cat = catById(sec.cat), o = sec.o, L = LESSONS[o.les], U = UNITLES[cat.id], M = LES_MORE[o.les], d = lesData(sec, v), out = [], PJ = projFor(U, cat.id, o.len);
     const names = d.tps.map(t => subOf(cat, t).n), k = d.tps.length, ctx = { U, k, names };
     const qh = it => (it.label ? `<span class="lab">${esc(it.label)}:</span> ` : '') + safe(it.q || '') + (it.fig ? `<div class="fig">${it.fig}</div>` : '');
     const rows = (arr, per, f, cls) => { for (let i = 0; i < arr.length; i += per) out.push({ html: `<div class="${cls}">${arr.slice(i, i + per).map((x, j) => f(x, i + j)).join('')}</div>` }); };
@@ -3620,16 +3767,16 @@ function satMake(key, d) {
       // ---------- teacher lesson plan ----------
       const lenTxt = L.len === 'days' ? `${o.len} class periods` : `${o.len} minutes`;
       let phases, arc;
-      if (o.les === 'pbl') { const groups = o.len === 3 ? [[0, 1], [2, 3], [4]] : [[0], [1], [2], [3], [4]];
-        phases = groups.map((g2, i) => [`Day ${i + 1}`, '', g2.map(j => U.project.tasks[j]).join(' '), i === 0 ? 'Launch: read the driving question together, form teams of four, assign roles, and use the skill builders as a warm-up.' : i === groups.length - 1 ? 'Teams present. Score with the rubric, then close with the reflection questions.' : 'Check in with each team for 3–4 minutes; pull a small group for any skill builder students missed.']);
+      if (o.les === 'pbl') { const groups = projDays(PJ, o.len);
+        phases = groups.map((g2, i) => [`Day ${i + 1}`, '', g2.map(j => PJ.tasks[j]).join(' '), groups.length === 1 ? 'Launch (10 min): read the driving question together, form teams of four, and assign roles. Work time: circulate and check in with each team. Last 10 minutes: teams share and score with the rubric.' : i === 0 ? 'Launch: read the driving question together, form teams of four, assign roles, and use the skill builders as a warm-up.' : i === groups.length - 1 ? 'Teams present. Score with the rubric, then close with the reflection questions.' : 'Check in with each team for 3–4 minutes; pull a small group for any skill builder students missed.']);
         arc = phases.map(p => p[0]).join(' → ') + ' (presentations)'; }
       else { const P = LES_PH[o.les], mm = splitMins(P.map(p => p[1]), o.len, P.map(p => p[0])); ctx.per = Math.max(3, Math.round(mm[1] / Math.max(1, k)));
         phases = P.map((p, i) => [p[0], mm[i], p[2](ctx), p[3](ctx)]); arc = phases.map(p => `${p[0]} ${p[1]}`).join(' → ') + ' (minutes)'; }
-      const mats = [...(M.mats || []).map(m => typeof m === 'function' ? m(ctx) : m), ...(o.les === 'pbl' ? U.project.mats : [])];
+      const mats = [...(M.mats || []).map(m => typeof m === 'function' ? m(ctx) : m), ...(o.les === 'pbl' ? PJ.mats : [])];
       const grp = typeof M.group === 'function' ? M.group(ctx) : M.group;
-      out.push({ brk: true, keep: true, html: `<div class="tp"><div class="tpt">Lesson plan: ${L.name}${o.les === 'pbl' ? ' — ' + esc(U.project.title) : o.les === 'inquiry' ? ' — ' + esc(U.inq.title) : ''}</div><div class="actm">${topicLine}</div>
+      out.push({ brk: true, keep: true, html: `<div class="tp"><div class="tpt">Lesson plan: ${L.name}${o.les === 'pbl' ? ' — ' + esc(PJ.title) : o.les === 'inquiry' ? ' — ' + esc(U.inq.title) : ''}</div><div class="actm">${topicLine}</div>
         <div class="tgl"><div><b>Lesson arc</b>${arc}</div><div><b>Length</b>${lenTxt}</div><div><b>Grouping</b>${grp}</div><div><b>Materials</b>${mats.join('; ')}</div></div></div>` });
-      out.push({ html: `<div class="tsec"><h4>Learning goals</h4><p><b>Big idea:</b> ${U.big}</p>${o.les === 'pbl' ? `<p><b>Driving question:</b> ${esc(U.project.dq)}</p>` : ''}<ul>${d.tps.map(t => `<li>I can ${keyIdea(cat, t)[0]}.</li>`).join('')}</ul></div>` });
+      out.push({ html: `<div class="tsec"><h4>Learning goals</h4><p><b>Big idea:</b> ${U.big}</p>${o.les === 'pbl' ? `<p><b>Driving question:</b> ${esc(PJ.dq)}</p>` : ''}<ul>${d.tps.map(t => `<li>I can ${keyIdea(cat, t)[0]}.</li>`).join('')}</ul></div>` });
       out.push({ html: `<div class="tsec"><h4>Key vocabulary</h4><ul class="two">${U.vocab.map(([a, b]) => `<li><b>${a}:</b> ${b}</li>`).join('')}</ul></div>` });
       out.push({ html: `<div class="tsec"><h4>Anticipated misconceptions</h4><table class="tt"><tr><th>What students do</th><th>Why it happens</th><th>Teacher move</th></tr>${U.mis.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</table></div>` });
       out.push({ html: `<div class="tsec"><h4>${o.les === 'pbl' ? 'Day-by-day plan' : 'Lesson sequence'}</h4></div>`, keep: true });
@@ -3681,7 +3828,7 @@ function satMake(key, d) {
       exitBlock(); return out;
     }
     // project-based
-    const P = U.project, groups = o.len === 3 ? [[0, 1], [2, 3], [4]] : [[0], [1], [2], [3], [4]];
+    const P = PJ, groups = projDays(P, o.len);
     out.push(lhead(`Project: ${esc(P.title)}`, `<p class="rq">Driving question: ${esc(P.dq)}</p>`));
     out.push({ html: `<div class="dbox"><b>The situation</b><p>${esc(P.scen)}</p><p><b>What you will make:</b> ${esc(P.product)}</p></div>` });
     out.push({ html: `<div class="tsec"><h4>Team roles</h4><table class="tt">${PBL_ROLES.map(r => `<tr><td class="ph"><b>${r[0]}</b></td><td>${r[1]}</td><td style="width:34%">Name:</td></tr>`).join('')}</table></div>` });
@@ -3842,7 +3989,7 @@ function satMake(key, d) {
     h += `<fieldset><legend>Lesson type</legend><div class="radios">${Object.entries(LESSONS).map(([k, A]) => `<label class="rad-l act-l"><input type="radio" name="les" value="${k}" ${D.o.les === k ? 'checked' : ''}><span><b>${A.name}</b><small>${A.blurb}</small></span></label>`).join('')}</div></fieldset>`;
     const tl = D.o.les === 'stations' ? 'Topics (one station each)' : D.o.les === 'jigsaw' ? 'Topics (one expert group each)' : D.o.les === 'choice' ? 'Topics for practice squares' : 'Topics for practice problems';
     h += `<fieldset><legend>${tl}</legend><div class="radios">${cat.subs.map(s => `<label class="rad-l"><input type="checkbox" name="tp" value="${s.id}" ${tps.includes(s.id) ? 'checked' : ''}> ${s.n}</label>`).join('')}</div><p class="hint">Choose ${Ld.tmin === Ld.tmax ? Ld.tmin : `${Ld.tmin}–${Ld.tmax}`} topic${Ld.tmax === 1 ? '' : 's'}.</p></fieldset>`;
-    h += `<fieldset><legend>Length</legend>${radioGroup('len', Ld.len === 'days' ? [[3, '3 class periods'], [5, '5 class periods']] : [[45, '45 minutes'], [60, '60 minutes'], [90, '90 minutes (block)']], D.o.len)}</fieldset>`;
+    h += `<fieldset><legend>Length</legend>${radioGroup('len', Ld.len === 'days' ? [1, 2, 3, 4, 5].map(n => [n, `${n} class period${n > 1 ? 's' : ''}`]) : [[45, '45 minutes'], [60, '60 minutes'], [90, '90 minutes (block)']], D.o.len)}</fieldset>`;
     h += `<fieldset><legend>Complexity</legend>${radioGroup('lv', LES_SUB.lv.map((l, i) => [i + 1, l]), D.o.lv)}</fieldset>`;
     h += '<p class="hint">The teacher lesson plan prints with the answer keys. Student handouts print with the worksheets.</p>';
     $('dOpts').innerHTML = h;
